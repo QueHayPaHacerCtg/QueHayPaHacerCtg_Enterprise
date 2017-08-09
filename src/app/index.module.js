@@ -20,7 +20,7 @@
             // Quick Panel
             'app.quick-panel',
 
-            // Sample
-            'app.sample'
+            // Evento
+            'app.evento'
         ]);
 })();

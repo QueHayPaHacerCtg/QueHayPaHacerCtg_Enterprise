@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('app.sample', [])
+        .module('app.evento', [])
         .config(config);
 
     /** @ngInject */
@@ -11,39 +11,39 @@
     {
         // State
         $stateProvider
-            .state('app.sample', {
-                url    : '/sample',
+            .state('app.evento', {
+                url    : '/evento',
                 views  : {
                     'content@app': {
-                        templateUrl: 'app/main/sample/sample.html',
-                        controller : 'SampleController as vm'
+                        templateUrl: 'app/main/evento/evento.html',
+                        controller : 'EventoController as vm'
                     }
                 },
                 resolve: {
-                    SampleData: function (msApi)
+                    EventoData: function (msApi)
                     {
-                        return msApi.resolve('sample@get');
+                        return msApi.resolve('evento@get');
                     }
                 }
             });
 
         // Translation
-        $translatePartialLoaderProvider.addPart('app/main/sample');
+        $translatePartialLoaderProvider.addPart('app/main/evento');
 
         // Api
-        msApiProvider.register('sample', ['app/data/sample/sample.json']);
+        msApiProvider.register('evento', ['app/data/evento/evento.json']);
 
         // Navigation
         msNavigationServiceProvider.saveItem('fuse', {
-            title : 'SAMPLE',
+            title : 'Menú Principal',
             group : true,
             weight: 1
         });
 
-        msNavigationServiceProvider.saveItem('fuse.sample', {
-            title    : 'Sample',
+        msNavigationServiceProvider.saveItem('fuse.evento', {
+            title    : 'Evento',
             icon     : 'icon-tile-four',
-            state    : 'app.sample',
+            state    : 'app.evento',
             /*stateParams: {
                 'param1': 'page'
              },*/
